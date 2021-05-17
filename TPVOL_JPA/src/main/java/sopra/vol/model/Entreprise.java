@@ -1,6 +1,4 @@
 package sopra.vol.model;
-import sopra.vol.model.StatutJuridique;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
