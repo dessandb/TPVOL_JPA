@@ -1,12 +1,28 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 public class Billet {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(name = "Numero_Place")
 	private String numeroPlace;
+	@Column(name = "Classe")
 	private String classe;
+	@Column(name = "Prix")
 	private float prix;
+	@Column(name = "Ordre")
 	private int ordre;
+	@ManyToOne
+	@JoinColumn(name = "Reservation_Id")
 	private Reservation reservation;
+	@ManyToOne
+	@JoinColumn(name = "Vol_Id")
 	private Vol vol;
 
 	public Billet() {
