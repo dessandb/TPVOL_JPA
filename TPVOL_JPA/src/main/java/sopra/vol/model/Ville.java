@@ -3,9 +3,18 @@ package sopra.vol.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 public class Ville {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(name = "nom")
 	private String nom;
+	@ManyToMany(mappedBy = "villes")
 	private List<Aeroport> aeroports = new ArrayList<Aeroport>();
 
 	public Ville() {

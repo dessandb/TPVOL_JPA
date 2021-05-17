@@ -4,15 +4,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 public class Vol {
 	private Long id;
+	@Enumerated(EnumType.STRING)
 	private StatutVol statutVol;
 	private Date dtDepart;
 	private Date dtArrivee;
+	@OneToOne
+	@JoinColumn(name = "Aeroport_depart")
 	private Aeroport depart;
+	@OneToOne
+	@JoinColumn(name = "Aeroport_arrivee")
 	private Aeroport arrivee;
 	private int nbPlaceDispo;
+	@ManyToOne
+	@JoinColumn(name = "Billet_id")
 	private List<Billet> billets = new ArrayList<Billet>();
+	@ManyToOne
+	@JoinColumn(name = "CompagnieAerienneVol_id")
 	private List<CompagnieAerienneVol> compagnieAeriennes = new ArrayList<CompagnieAerienneVol>();
 
 	public Vol() {
