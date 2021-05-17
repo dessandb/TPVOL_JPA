@@ -4,12 +4,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name = "Reservation")
 public class Reservation {
+	@Id
+	@GeneratedValue
 	private Integer numero;
+	@Column(name = "Date_Reservation")
 	private Date dtReservation;
+	@Column(name = "Statut_Reservation")
 	private StatutReservation statut;
+	@ManyToOne
+	@JoinColumn(name = "Client_id")
 	private Client client;
+	@ManyToOne
+	@JoinColumn(name = "Passager_id")
 	private Passager passager;
+	@OneToMany(mappedBy = "reservation")
 	private List<Billet> billets = new ArrayList<Billet>();
 
 	public Reservation() {
