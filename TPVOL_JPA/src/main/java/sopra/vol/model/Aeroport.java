@@ -3,9 +3,21 @@ package sopra.vol.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 public class Aeroport {
+	@Id
+	@GeneratedValue
 	private String code;
+	@Column(name = "nom")
 	private String nom;
+	@ManyToMany
+	@JoinTable(name = "villes", joinColumns = @JoinColumn(name = "ville_id"), inverseJoinColumns = @JoinColumn(name = "aeroport_code"))
 	private List<Ville> villes = new ArrayList<Ville>();
 
 	public Aeroport() {
