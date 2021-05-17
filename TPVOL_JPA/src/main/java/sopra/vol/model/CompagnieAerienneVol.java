@@ -1,9 +1,13 @@
 package sopra.vol.model;
 
+import javax.persistence.OneToMany;
+
 public class CompagnieAerienneVol {
 	private Long id;
 	private String numeroVol;
+	@OneToMany(mappedBy="compagnieAerienne")
 	private CompagnieAerienne compagnieAerienne;
+	@OneToMany(mappedBy="vol")
 	private Vol vol;
 
 	public CompagnieAerienneVol() {
