@@ -47,29 +47,29 @@ public class TESTBAPTISTE  {
 		Assert.assertEquals("Baptiste", ((Particulier) batFind).getPrenom());
 		
 	}
-	@Test
-	public void adresseClientUpdate() {
-		IAdresseRepository adresseRepo = Application.getInstance().getAdresseRepo();
-		IClientRepository clientRepo = Application.getInstance().getClientRepo();
-		Client baptiste= new Particulier();
-		baptiste.setNom("Dessandier");
-		((Particulier) baptiste).setPrenom("Baptiste");
-		Adresse adr = new Adresse();
-		adr.setClient(baptiste);
-		adr.setCodePostal("86000");
-		adr.setRue("45 rue des Carmélites");
-		adr.setComplement("appt 15");
-		adr.setVille("Poitiers");
-		adr = adresseRepo.save(adr);
-		eval = evaluationRepo.findById(eval.getId());
-		eval.setComportemental(18);
-		eval.setTechnique(12);
-		eval.setCommentaires("A demissionné de son mandat");
-		eval = evaluationRepo.save(eval);
-		eval = evaluationRepo.findById(eval.getId());
-		Assert.assertEquals((Integer) 18, eval.getComportemental());
-		Assert.assertEquals((Integer) 12, eval.getTechnique());
-		Assert.assertEquals("A demissionné de son mandat", eval.getCommentaires());
-	}
+//	@Test
+//	public void adresseClientUpdate() {
+//		IAdresseRepository adresseRepo = Application.getInstance().getAdresseRepo();
+//		IClientRepository clientRepo = Application.getInstance().getClientRepo();
+//		Client baptiste= new Particulier();
+//		baptiste.setNom("Dessandier");
+//		((Particulier) baptiste).setPrenom("Baptiste");
+//		Adresse adr = new Adresse();
+//		adr.setClient(baptiste);
+//		adr.setCodePostal("86000");
+//		adr.setRue("45 rue des Carmélites");
+//		adr.setComplement("appt 15");
+//		adr.setVille("Poitiers");
+//		adr = adresseRepo.save(adr);
+//		eval = evaluationRepo.findById(eval.getId());
+//		eval.setComportemental(18);
+//		eval.setTechnique(12);
+//		eval.setCommentaires("A demissionné de son mandat");
+//		eval = evaluationRepo.save(eval);
+//		eval = evaluationRepo.findById(eval.getId());
+//		Assert.assertEquals((Integer) 18, eval.getComportemental());
+//		Assert.assertEquals((Integer) 12, eval.getTechnique());
+//		Assert.assertEquals("A demissionné de son mandat", eval.getCommentaires());
+//	}
 	
 }

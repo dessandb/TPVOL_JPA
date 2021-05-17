@@ -24,7 +24,7 @@ public class CompagnieAerienneRepositoryJpa implements ICompagnieAerienneReposit
 		try {
 			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
-			tx.begin();
+			tx.begin(); 
 
 			TypedQuery<CompagnieAerienne> query = em.createQuery("select c from Compagnie_Aerienne c", CompagnieAerienne.class);
 
