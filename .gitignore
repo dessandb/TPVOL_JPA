@@ -3,8 +3,6 @@ TPVOL_JPA/.classpath
 
 TPVOL_JPA/.project
 
-TPVOL_JPA/.settings/org.eclipse.core.resources.prefs
+TPVOL_JPA/.settings/
 
-TPVOL_JPA/.settings/org.eclipse.jdt.core.prefs
-
-TPVOL_JPA/.settings/org.eclipse.m2e.core.prefs
+TPVOL_JPA/target/
