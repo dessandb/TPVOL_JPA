@@ -1,7 +1,6 @@
 package sopra.vol.model;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,11 +15,12 @@ public class Escale {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Embedded
+	@OneToOne
+	@JoinColumn(name = "Horaire_Depart_Id")
 	@Column(name = "Horaire_Depart")
 	private Horaire hDepart;
-	@Embedded
-	@Column(name = "Horaire_Arrivee")
+	@OneToOne
+	@JoinColumn(name = "Horaire_Arrivee_Id")
 	private Horaire hArrivee;
 	@ManyToOne
 	@JoinColumn(name = "Vol_Id")
