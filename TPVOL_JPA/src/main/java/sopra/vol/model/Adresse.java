@@ -7,9 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 @Entity
-@Table(name = "adress")
+@Table(name = "Adresse")
 public class Adresse {
 	@Id
 	@GeneratedValue
@@ -26,12 +25,9 @@ public class Adresse {
 
 	@Column(name = "city", length = 50)
 	private String ville;
-
-	@Column(name = "country", length = 50)
 	private String pays;
-
 	@ManyToOne
-	@JoinColumn(name = "adresses")
+	@JoinColumn(name = "Client_Id")
 	private Client client;
 
 	public Adresse() {

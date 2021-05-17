@@ -1,10 +1,32 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Escale")
 public class Escale {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@OneToOne
+	@JoinColumn(name = "Horaire_Depart_Id")
+	@Column(name = "Horaire_Depart")
 	private Horaire hDepart;
+	@OneToOne
+	@JoinColumn(name = "Horaire_Arrivee_Id")
 	private Horaire hArrivee;
+	@ManyToOne
+	@JoinColumn(name = "Vol_Id")
 	private Vol vol;
+	@OneToOne
+	@JoinColumn(name = "Aeroport_Code")
 	private Aeroport aeroport;
 
 	public Escale() {
