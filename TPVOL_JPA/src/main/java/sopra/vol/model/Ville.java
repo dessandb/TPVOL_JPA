@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
-<<<<<<< HEAD
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-=======
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,16 +11,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name = "Ville")
->>>>>>> main
 public class Ville {
 	@Id
 	@GeneratedValue
 	private Long id;
-<<<<<<< HEAD
-	@Column(name = "nom")
-=======
 	@Column(name = "Nom")
->>>>>>> main
 	private String nom;
 	@ManyToMany(mappedBy = "villes")
 	private List<Aeroport> aeroports = new ArrayList<Aeroport>();
