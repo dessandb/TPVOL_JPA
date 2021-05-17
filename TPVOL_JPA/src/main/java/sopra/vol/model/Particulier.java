@@ -1,5 +1,6 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
