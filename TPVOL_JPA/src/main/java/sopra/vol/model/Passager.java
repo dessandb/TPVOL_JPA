@@ -8,27 +8,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import sopra.vol.model.TypeIdentite;
 
 @Entity
-@Table(name = "passenger")
+@Table(name = "Passager")
 public class Passager {
 	@Id
 	@GeneratedValue
 	private Long id;
-
-	@Column(name = "last_name", length = 100)
+	@Column(name="Nom")
 	private String nom;
-
-	@Column(name = "name", length = 100)
+	@Column(name="Prenom")
 	private String prenom;
-
-	@Column(name = "identity_number", length = 100)
+	@Column(name="Numero_Identite")
 	private String numeroIdentite;
-
-	@Column(name = "identity_type", length = 20)
 	@Enumerated(EnumType.STRING)
+	@Column(name="Type_Identite")
 	private TypeIdentite typeIdentite;
-
 	@OneToOne(mappedBy = "passager")
 	private Reservation reservation;
 

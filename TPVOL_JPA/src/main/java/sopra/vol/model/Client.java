@@ -12,23 +12,19 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 @Entity
-@Table(name = "client")
+@Table(name = "Client")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type")
+@DiscriminatorColumn(name = "Type")
 public abstract class Client {
 	@Id
 	@GeneratedValue
 	private Long id;
-
-	@Column(name = "last_name", length = 100)
+	@Column(name = "Nom")
 	private String nom;
-
-	@OneToMany(mappedBy = "client")
+	@OneToMany(mappedBy="client")
 	private List<Adresse> adresses = new ArrayList<Adresse>();
-
-	@OneToMany(mappedBy = "client")
+	@OneToMany(mappedBy="client")
 	private List<Reservation> reservations = new ArrayList<Reservation>();
 
 	public Client() {
