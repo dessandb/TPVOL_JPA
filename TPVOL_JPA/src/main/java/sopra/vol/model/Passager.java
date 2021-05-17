@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import sopra.vol.model.TypeIdentite;
 
 @Entity
 @Table(name = "Passager")

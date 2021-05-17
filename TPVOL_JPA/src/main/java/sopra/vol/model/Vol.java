@@ -3,6 +3,7 @@ package sopra.vol.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import sopra.vol.model.StatutVol;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
