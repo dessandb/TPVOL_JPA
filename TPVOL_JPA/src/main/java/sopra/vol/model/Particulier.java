@@ -1,11 +1,10 @@
 package sopra.vol.model;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Particulier")
+@DiscriminatorValue("P")
 public class Particulier extends Client {
 
 	@Column(name = "name", length = 100)

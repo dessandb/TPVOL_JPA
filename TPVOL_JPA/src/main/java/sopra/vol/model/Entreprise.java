@@ -4,19 +4,17 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import sopra.vol.model.StatutJuridique;
 
 @Entity
-@DiscriminatorValue("Entreprise")
+@DiscriminatorValue("E")
 public class Entreprise extends Client {
-
-	@Column(name = "numberSiret", length = 100)
+	@Column(name = "Siret")
 	private String siret;
-
-	@Column(name = "numberTVA", length = 100)
+	@Column(name = "Numero_TVA")
 	private String numeroTVA;
-
 	@Enumerated(EnumType.STRING)
-	@Column(name = "legalStatus", length = 5)
+	@Column(name = "Statut_Juridique")
 	private StatutJuridique statutJuridique;
 
 	public Entreprise() {

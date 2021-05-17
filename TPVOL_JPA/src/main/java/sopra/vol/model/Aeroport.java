@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+<<<<<<< HEAD
+=======
+import javax.persistence.Entity;
+>>>>>>> main
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+<<<<<<< HEAD
 
 public class Aeroport {
 	@Id
@@ -18,6 +23,19 @@ public class Aeroport {
 	private String nom;
 	@ManyToMany
 	@JoinTable(name = "villes", joinColumns = @JoinColumn(name = "ville_id"), inverseJoinColumns = @JoinColumn(name = "aeroport_code"))
+=======
+import javax.persistence.Table;
+@Entity
+@Table(name = "Aeroport")
+public class Aeroport {
+	@Id
+	@Column(name = "Code")
+	private String code;
+	@Column(name = "Nom")
+	private String nom;
+	@ManyToMany
+	@JoinTable(name = "Aero_Ville", joinColumns = @JoinColumn(name = "Ville_id"), inverseJoinColumns = @JoinColumn(name = "Aeroport_Code"))
+>>>>>>> main
 	private List<Ville> villes = new ArrayList<Ville>();
 
 	public Aeroport() {
