@@ -5,6 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import sopra.vol.model.StatutJuridique;
 
 @Entity
 @DiscriminatorValue("E")
