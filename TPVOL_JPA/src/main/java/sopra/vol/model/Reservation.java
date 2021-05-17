@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,6 +22,7 @@ public class Reservation {
 	private Integer numero;
 	@Column(name = "Date_Reservation")
 	private Date dtReservation;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "Statut_Reservation")
 	private StatutReservation statut;
 	@ManyToOne
