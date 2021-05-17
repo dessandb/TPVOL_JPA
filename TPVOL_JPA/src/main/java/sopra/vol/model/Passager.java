@@ -1,11 +1,31 @@
 package sopra.vol.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import sopra.vol.model.TypeIdentite;
+
+@Entity
+@Table(name = "Passager")
 public class Passager {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(name="Nom")
 	private String nom;
+	@Column(name="Prenom")
 	private String prenom;
+	@Column(name="Numero_Identite")
 	private String numeroIdentite;
+	@Enumerated(EnumType.STRING)
+	@Column(name="Type_Identite")
 	private TypeIdentite typeIdentite;
+	@OneToOne(mappedBy = "passager")
 	private Reservation reservation;
 
 	public Passager() {

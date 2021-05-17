@@ -3,14 +3,20 @@ package sopra.vol.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name = "Compagnie_Aerienne")
 public class CompagnieAerienne {
+	@Id
+	@Column(name = "Code")
 	private String code;
+	@Column(name = "Nom")
 	private String nom;
-	@ManyToOne
-	@JoinColumn(name = "CompagnieAerienneVol_id")
+	@OneToMany(mappedBy="compagnieAerienne")
 	private List<CompagnieAerienneVol> vols = new ArrayList<CompagnieAerienneVol>();
 
 	public CompagnieAerienne() {

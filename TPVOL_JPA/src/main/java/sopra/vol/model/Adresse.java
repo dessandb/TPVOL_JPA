@@ -1,12 +1,24 @@
 package sopra.vol.model;
 
 public class Adresse {
+	@Id
+	@GeneratedValue
 	private Long id;
+
+	@Column(name = "street", length = 300)
 	private String rue;
+
+	@Column(name = "additional_details", length = 300)
 	private String complement;
+
+	@Column(name = "postal_code", length = 10)
 	private String codePostal;
+
+	@Column(name = "city", length = 50)
 	private String ville;
 	private String pays;
+	@ManyToOne
+	@JoinColumn(name = "Client_Id")
 	private Client client;
 
 	public Adresse() {
