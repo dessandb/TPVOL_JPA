@@ -27,6 +27,10 @@ public class Aeroport {
 		super();
 	}
 
+	public Aeroport( String nom) {
+		super();		
+		this.nom = nom;
+	}
 	public Aeroport(String code, String nom) {
 		super();
 		this.code = code;

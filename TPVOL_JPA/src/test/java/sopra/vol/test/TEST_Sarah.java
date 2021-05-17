@@ -6,7 +6,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import sopra.vol.Application;
+import sopra.vol.model.Aeroport;
 import sopra.vol.model.Ville;
+import sopra.vol.repository.IAeroportRepository;
 import sopra.vol.repository.IVilleRepository;
 
 public class TEST_Sarah  {	
@@ -17,42 +19,46 @@ public class TEST_Sarah  {
 		Ville ville1 = new Ville("Paris");
 		try {
 		ville1 = villeRepo.save(ville1);
-		Assert.fail("Vérification commentaires obligatoire en erreur");
+		//Assert.fail("Vérification commentaires obligatoire en erreur");
 		} catch(PersistenceException e) {
 		}
 		Ville villeFind = villeRepo.findById(ville1.getId());
-		Assert.assertEquals("paris", villeFind.getNom());				
-
+		Assert.assertEquals("Paris", villeFind.getNom());	
+	}
+	
+	@Test
+	public void villeUpdate() {
+		IVilleRepository villeRepo = Application.getInstance().getVilleRepo();
+		Ville ville1 = new Ville("Paris");
+		ville1 = villeRepo.save(ville1);
+		ville1 = villeRepo.findById(ville1.getId());
+		ville1.setNom("Madrid");
+		Assert.assertEquals("Madrid", ville1.getNom());	
+	}
+	
+	@Test
+	public void aeroportCreate() {
+		IAeroportRepository aeroportRepo = Application.getInstance().getAeroportRepo();
+		Aeroport aeroport1 = new Aeroport("rcdg","Roissy");
+		try {
+			aeroport1 = aeroportRepo.save(aeroport1);		
+		} catch(PersistenceException e) {
+		}
+		Aeroport aeroFind = aeroportRepo.findById(aeroport1.getCode());
+		Assert.assertEquals("Roissy", aeroFind .getNom());		
 	}
 	
 	
-//	Assert.assertEquals((Integer) 15, evalFind.getComportemental());
-//	Assert.assertEquals((Integer) 13, evalFind.getTechnique());
-//	Assert.assertEquals("super délégué", evalFind.getCommentaires());
-//}
-//	eval = evaluationRepo.save(eval);
-//	Assert.fail("Vérification commentaires obligatoire en erreur");
-//	} catch(PersistenceException e) {
-//	}
-//	Evaluation evalFind = evaluationRepo.findById(eval.getId());
-//	Assert.assertEquals((Integer) 15, evalFind.getComportemental());
-//	Assert.assertEquals((Integer) 13, evalFind.getTechnique());
-//	Assert.assertEquals("super délégué", evalFind.getCommentaires());
+	@Test
+	public void aeroportUpdate() {
+		IAeroportRepository aeroportRepo = Application.getInstance().getAeroportRepo();
+		Aeroport aeroport1 =  new Aeroport("Roissy");
+		aeroport1 = aeroportRepo.save(aeroport1);
+		Aeroport aeroFind = aeroportRepo.findById(aeroport1.getCode());
+		aeroport1.setNom("Madrid");
+		Assert.assertEquals("Madrid", aeroport1.getNom());	
+	}
 	
-//	@Test
-//	public void evaluationUpdate() {
-//		IEvaluationRepository evaluationRepo = Application.getInstance().getEvaluationRepo();
-//		Evaluation eval = new Evaluation(15, 13, "super délégué");
-//		eval = evaluationRepo.save(eval);
-//		eval = evaluationRepo.findById(eval.getId());
-//		eval.setComportemental(18);
-//		eval.setTechnique(12);
-//		eval.setCommentaires("A demissionné de son mandat");
-//		eval = evaluationRepo.save(eval);
-//		eval = evaluationRepo.findById(eval.getId());
-//		Assert.assertEquals((Integer) 18, eval.getComportemental());
-//		Assert.assertEquals((Integer) 12, eval.getTechnique());
-//		Assert.assertEquals("A demissionné de son mandat", eval.getCommentaires());
-//	}
+	
 }
 

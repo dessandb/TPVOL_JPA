@@ -17,7 +17,6 @@ public class Escale {
 	private Long id;
 	@OneToOne
 	@JoinColumn(name = "Horaire_Depart_Id")
-	@Column(name = "Horaire_Depart")
 	private Horaire hDepart;
 	@OneToOne
 	@JoinColumn(name = "Horaire_Arrivee_Id")

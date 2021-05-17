@@ -46,7 +46,7 @@ public class AeroportRepositoryJpa implements IAeroportRepository {
 	}
 
 	@Override
-	public Aeroport findById(Long id) {
+	public Aeroport findById(String id) {
 		Aeroport aeroport = null;
 
 		EntityManager em = null;
