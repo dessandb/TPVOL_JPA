@@ -3,8 +3,10 @@ package sopra.vol;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import sopra.vol.repository.IAdresseRepository;
 import sopra.vol.repository.IClientRepository;
 import sopra.vol.repository.IPassagerRepository;
+import sopra.vol.repository.jpa.AdresseRepositoryJpa;
 import sopra.vol.repository.jpa.ClientRepositoryJpa;
 import sopra.vol.repository.jpa.PassagerRepositoryJpa;
 
@@ -17,6 +19,8 @@ public class Application {
 	private final IClientRepository clientRepo = new ClientRepositoryJpa();
 
 	private final IPassagerRepository passagerRepo = new PassagerRepositoryJpa();
+
+	private final IAdresseRepository adresseRepo = new AdresseRepositoryJpa();
 
 	public static Application getInstance() {
 		return instance;
@@ -36,6 +40,10 @@ public class Application {
 
 	public IPassagerRepository getPassagerRepo() {
 		return passagerRepo;
+	}
+
+	public IAdresseRepository getAdresseRepo() {
+		return adresseRepo;
 	}
 
 }

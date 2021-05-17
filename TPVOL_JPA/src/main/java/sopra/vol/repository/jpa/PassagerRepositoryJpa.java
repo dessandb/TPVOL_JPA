@@ -25,7 +25,7 @@ public class PassagerRepositoryJpa implements IPassagerRepository {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Passager> query = em.createQuery("select e from Passager e", Passager.class);
+			TypedQuery<Passager> query = em.createQuery("select p from Passager p", Passager.class);
 
 			passagers = query.getResultList();
 
