@@ -74,7 +74,6 @@ public class ClientRepositoryJpa implements IClientRepository {
 
 		return client;
 	}
-
 	@Override
 	public Client save(Client obj) {
 		EntityManager em = null;
@@ -127,7 +126,6 @@ public class ClientRepositoryJpa implements IClientRepository {
 				em.close();
 			}
 		}
-
 	}
 
 }

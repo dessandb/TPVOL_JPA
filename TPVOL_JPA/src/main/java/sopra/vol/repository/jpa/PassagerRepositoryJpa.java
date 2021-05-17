@@ -127,7 +127,6 @@ public class PassagerRepositoryJpa implements IPassagerRepository {
 				em.close();
 			}
 		}
-
 	}
 
 }
