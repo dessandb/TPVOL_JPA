@@ -4,15 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
+import javax.persistence.Table;
+@Entity
+@Table(name = "Ville")
 public class Ville {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(name = "nom")
+	@Column(name = "Nom")
 	private String nom;
 	@ManyToMany(mappedBy = "villes")
 	private List<Aeroport> aeroports = new ArrayList<Aeroport>();

@@ -3,16 +3,42 @@ package sopra.vol.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import sopra.vol.model.StatutVol;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name = "Vol")
 public class Vol {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "Statut_Vol")
 	private StatutVol statutVol;
+	@Column(name = "DateDepart")
 	private Date dtDepart;
+	@Column(name = "DateArrivee")
 	private Date dtArrivee;
+	@OneToOne
+	@JoinColumn(name="Aeroport_Depart_Code")
 	private Aeroport depart;
+	@OneToOne
+	@JoinColumn(name="Aeroport_Arrivee_Code")
 	private Aeroport arrivee;
+	@Column(name = "Nombre_Places_Disponibles")
 	private int nbPlaceDispo;
+	@OneToMany(mappedBy = "vol")
 	private List<Billet> billets = new ArrayList<Billet>();
+	@OneToMany(mappedBy = "vol")
 	private List<CompagnieAerienneVol> compagnieAeriennes = new ArrayList<CompagnieAerienneVol>();
 
 	public Vol() {
