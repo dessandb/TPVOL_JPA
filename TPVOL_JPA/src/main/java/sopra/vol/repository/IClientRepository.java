@@ -1,4 +1,4 @@
-package sopra.formation.repository;
+package sopra.vol.repository;
 
 import sopra.vol.model.Client;
 
