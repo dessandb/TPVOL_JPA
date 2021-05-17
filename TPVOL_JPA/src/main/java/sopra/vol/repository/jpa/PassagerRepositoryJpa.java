@@ -46,7 +46,7 @@ public class PassagerRepositoryJpa implements IPassagerRepository {
 	}
 
 	@Override
-	public Passager findById(Integer id) {
+	public Passager findById(Long id) {
 		Passager passager = null;
 
 		EntityManager em = null;

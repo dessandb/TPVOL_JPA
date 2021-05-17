@@ -1,20 +1,24 @@
 package sopra.vol.test;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import junit.framework.TestCase;
+import sopra.vol.Application;
+import sopra.vol.model.Passager;
+import sopra.vol.model.TypeIdentite;
+import sopra.vol.repository.IPassagerRepository;
 
-public class TEST2 extends TestCase {
-
-}
-public class TestJunit4 {
+public class TEST_PASSAGER_AUBE extends TestCase {
+	
 	@Test
-	public void evaluationCreate() {
-		IEvaluationRepository evaluationRepo = Application.getInstance().getEvaluationRepo();
-		Evaluation eval = new Evaluation(15, 13);
-		try {
-		eval = evaluationRepo.save(eval);
-		Assert.fail("Vérification commentaires obligatoire en erreur");
-		} catch(PersistenceException e) {
-		}
+	public void passagerCreate() {
+		IPassagerRepository passagerRepo = Application.getInstance().getPassagerRepo();
+		Passager passager = new Passager("PECQUE", "Aubeline", "123456789FR", TypeIdentite.CARTE_IDENTITE);
+		passager = passagerRepo.save(passager);
+
+		passager = passagerRepo.findById(passager.getId());
+
 		Evaluation evalFind = evaluationRepo.findById(eval.getId());
 		Assert.assertEquals((Integer) 15, evalFind.getComportemental());
 		Assert.assertEquals((Integer) 13, evalFind.getTechnique());

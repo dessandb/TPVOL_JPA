@@ -46,7 +46,7 @@ public class ClientRepositoryJpa implements IClientRepository {
 	}
 
 	@Override
-	public Client findById(Integer id) {
+	public Client findById(Long id) {
 		Client client = null;
 
 		EntityManager em = null;
