@@ -1,4 +1,5 @@
 package sopra.vol.model;
+import sopra.vol.model.StatutJuridique;
 
 public class Entreprise extends Client {
 	private String siret;

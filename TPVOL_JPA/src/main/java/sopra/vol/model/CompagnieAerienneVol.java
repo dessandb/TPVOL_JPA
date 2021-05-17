@@ -7,7 +7,7 @@ public class CompagnieAerienneVol {
 	private String numeroVol;
 	@OneToMany(mappedBy="compagnieAerienne")
 	private CompagnieAerienne compagnieAerienne;
-	@OneToMany(mappedBy="vol")
+	@OneToMany(mappedBy="vols")
 	private Vol vol;
 
 	public CompagnieAerienneVol() {
